@@ -7,6 +7,7 @@
 
 #import "BinarySearchTree.h"
 
+
 @implementation BWBinaryNode
 
 - (instancetype)initValue:(int)value {
@@ -19,22 +20,17 @@
 @end
 
 @interface BinarySearchTree ()
-
+@property(nonatomic, assign) PrintType pType;
 @property(nonatomic, strong) BWBinaryNode *root;
 
 @end
 
 @implementation BinarySearchTree
 
-
-- (void)printAll {
-	if (!_root) {
-		NSLog(@"当前树为空");
-		return;
-	}
+- (void)printType:(PrintType)type {
+	self.pType = type;
 	[self _printNode:_root];
 }
-
 - (void)addValue:(int)value {
 	if (!self.root) {
 		self.root = [[BWBinaryNode alloc]initValue:value];
@@ -72,13 +68,39 @@
 
 #pragma mark 私有方法
 - (void)_printNode:(BWBinaryNode *)node {
-	NSLog(@"value:%d",node.value);
-	if (node.left) {
-		[self _printNode:node.left];
+	switch (self.pType) {
+	case PrintTypeFront: {
+		if (node.left) {
+			[self _printNode:node.left];
+		}
+		NSLog(@"value:%d",node.value);
+		if (node.right) {
+			[self _printNode:node.right];
+		}
 	}
-	if (node.right) {
-		[self _printNode:node.right];
+	break;
+	case PrintTypeMiddle: {
+		NSLog(@"value:%d",node.value);
+		if (node.left) {
+			[self _printNode:node.left];
+		}
+		if (node.right) {
+			[self _printNode:node.right];
+		}
+	}
+	break;
+	case PrintTypeLast: {
+		if (node.right) {
+			[self _printNode:node.right];
+		}
+		NSLog(@"value:%d",node.value);
+		if (node.left) {
+			[self _printNode:node.left];
+		}
+	}
+	break;
+	default:
+		break;
 	}
 }
-
 @end

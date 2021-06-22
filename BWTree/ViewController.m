@@ -32,9 +32,18 @@
 	         [self.searchTree addValue:value];
 	 }];
 }
-
-- (IBAction)printAll:(id)sender {
-	[self.searchTree printAll];
+- (IBAction)clickOntheFront:(id)sender {
+	[self.searchTree printType:PrintTypeFront];
 }
+
+- (IBAction)clickOntheMiddle:(id)sender {
+	[self.searchTree printType:PrintTypeMiddle];
+}
+
+- (IBAction)clickOntheLast:(id)sender {
+	[self.searchTree printType:PrintTypeLast];
+}
+
+
 
 @end

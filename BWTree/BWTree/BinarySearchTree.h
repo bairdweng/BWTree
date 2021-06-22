@@ -9,6 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+	PrintTypeFront,
+	PrintTypeMiddle,
+	PrintTypeLast,
+} PrintType;
+
+
 @interface BWBinaryNode : NSObject
 
 - (instancetype)initValue:(int)value;
@@ -21,10 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BinarySearchTree : NSObject
 
-// 添加值
+/// 添加值
 - (void)addValue:(int)value;
-// 打印所有
-- (void)printAll;
+/// 前/中/后排序
+- (void)printType:(PrintType)type;
 
 @end
 
