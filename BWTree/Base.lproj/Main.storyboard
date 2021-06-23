@@ -17,37 +17,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-Oy-5x5">
-                                <rect key="frame" x="15" y="144" width="384" height="30"/>
+                                <rect key="frame" x="15" y="59" width="384" height="30"/>
                                 <state key="normal" title="插入一组数据"/>
                                 <connections>
                                     <action selector="insetData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LUS-KD-H6v"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lm9-xV-tLS">
-                                <rect key="frame" x="15" y="189" width="384" height="130"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lm9-xV-tLS">
+                                <rect key="frame" x="15" y="104" width="384" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBD-Fy-nQK">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="30"/>
                                         <state key="normal" title="前"/>
                                         <connections>
                                             <action selector="clickOntheFront:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wJ7-uc-5Io"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P07-VE-TCx">
-                                        <rect key="frame" x="0.0" y="50" width="384" height="30"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="56" height="30"/>
                                         <state key="normal" title="中"/>
                                         <connections>
                                             <action selector="clickOntheMiddle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wLQ-lI-9LQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbJ-iC-Bfk">
-                                        <rect key="frame" x="0.0" y="100" width="384" height="30"/>
+                                        <rect key="frame" x="131.5" y="0.0" width="55.5" height="30"/>
                                         <state key="normal" title="后"/>
                                         <connections>
                                             <action selector="clickOntheLast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNj-wX-4t0"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT5-Kr-AQl">
+                                        <rect key="frame" x="197" y="0.0" width="55.5" height="30"/>
+                                        <state key="normal" title="清空"/>
+                                        <connections>
+                                            <action selector="clickClean:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gd-uX-59u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-sI-kVE" userLabel="高度">
+                                        <rect key="frame" x="262.5" y="0.0" width="56" height="30"/>
+                                        <state key="normal" title="高度"/>
+                                        <connections>
+                                            <action selector="clickOntheThreeHeight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6PK-31-X4T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs3-Cf-I5y" userLabel="高度">
+                                        <rect key="frame" x="328.5" y="0.0" width="55.5" height="30"/>
+                                        <state key="normal" title="删除"/>
+                                        <connections>
+                                            <action selector="clickOntheDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wpc-Ws-Y6t"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zqg-Pa-vpX"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -55,7 +79,7 @@
                         <constraints>
                             <constraint firstItem="Lm9-xV-tLS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3NB-sT-DjE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lm9-xV-tLS" secondAttribute="trailing" constant="15" id="3xu-a6-2BD"/>
-                            <constraint firstItem="1dD-Oy-5x5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="dei-QZ-tFb"/>
+                            <constraint firstItem="1dD-Oy-5x5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="dei-QZ-tFb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1dD-Oy-5x5" secondAttribute="trailing" constant="15" id="qqh-aE-bnI"/>
                             <constraint firstItem="1dD-Oy-5x5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="sPA-3F-IwR"/>
                             <constraint firstItem="Lm9-xV-tLS" firstAttribute="top" secondItem="1dD-Oy-5x5" secondAttribute="bottom" constant="15" id="xyY-qg-mkI"/>

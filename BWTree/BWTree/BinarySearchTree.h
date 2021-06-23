@@ -7,12 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef enum : NSUInteger {
+	// 前置排序
 	PrintTypeFront,
-	PrintTypeMiddle,
+	// 中置排序
+	PrintTypeIn,
+	// 后序排序
 	PrintTypeLast,
+	// 树的高度
+	PrintTypeThreeHeight,
 } PrintType;
 
 
@@ -32,7 +35,12 @@ typedef enum : NSUInteger {
 - (void)addValue:(int)value;
 /// 前/中/后排序
 - (void)printType:(PrintType)type;
+/// 删除所有
+- (void)clean;
+/// 删除一个值
+/// @param value 值
+- (void)removeValue:(int)value;
 
 @end
 
-NS_ASSUME_NONNULL_END
+

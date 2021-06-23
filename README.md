@@ -119,5 +119,103 @@
       
       
       
-      
+##### 3. 删除二叉树
+
+  个人认为这个是比较关键的点。
+
+1. 第一种情况，删除的节点是根节点，这个是最简单的。
+
+   ```objective-c
+   	// 删除根节点
+   	if (value == self.root.value) {
+   		self.root = nil;
+   	}
+   ```
+
+2. 删除的节点没有子节点，也就是说当前的节点是叶子节点。
+
+   2.1 在这里首先要判断当前节点在父节点的左边还是右边，知道后直接将其置为空即可。
+
+   ```objective-c
+   ···
+   if (!node.left && !node.right) {
+     if (parent.left.value == node.value) {
+       parent.left = nil;
+     }
+     else {
+       parent.right = nil;
+     }
+     return;
+   }
+   ...
+   ```
+   
+3. 当前节点左右都有子节点，这种情况相对复杂
+
+   3.1 首先还是需要判断在父节点的位置，方便将右子树提取上来。
+
+   ```objective-c
+   // 左边
+   if (parent.left.value == node.value) {
+     ...
+   }
+   // 右边
+   else {
+     ...
+   }
+   ```
+
+   3.2 将右子树提取到自己当前的位置，上一步已经知道自己在原来父子树的左边还是右边。
+
+   ```objective-c
+   // 左边
+   if (parent.left.value == node.value) {
+     // 2.1 将自己的右子树提上来放在父节点的左边。
+     BWBinaryNode *newNode = node.right;
+     parent.left = newNode;
+     // 2.2 将自己的左边放置在新节点的左边，到了这一步，当前的节点已经被删除掉。
+     newNode.left = node.left;
+   }
+   // 右边
+   else {
+     BWBinaryNode *newNode = node.right;
+     // 2.3 放在父节点的右边。
+     parent.right = newNode;
+     newNode.left = node.left;
+   }
+   ```
+
+4. 节点只有左子树，直接将左子树替换上来自己的位置。
+
+   ```objective-c
+   if (node.left) {
+     // 3.1 在父节点的左边。
+     if (parent.left.value == node.value) {
+       parent.left = node.left;
+     }
+     // 3.2 在父节点的右边
+     else {
+       parent.right = node.left;
+     }
+     return;
+   }
+   ```
+
+5. 节点只有右子树，直接将右子树替换上来自己的位置。
+
+   ```objective-c
+   if (node.right) {
+     // 4.1 在父节点的左边。
+     if (parent.left.value == node.value) {
+       parent.left = node.right;
+     }
+     // 4.2 在父节点的右边
+     else {
+       parent.right = node.right;
+     }
+     return;
+   }
+   ```
+
+   以上已经包含了所有处理的情况，待续...
 

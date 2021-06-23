@@ -24,9 +24,9 @@
 	}
 	return _searchTree;
 }
-
+// 60,58,80,40,32
 - (IBAction)insetData:(id)sender {
-	NSArray *att = @[@(60),@(58),@(80),@(40),@(32)];
+	NSArray *att = @[@(60),@(50),@(32),@(58),@(57),@(59),@(80),@(69)];
 	[att enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 	         int value = [obj intValue];
 	         [self.searchTree addValue:value];
@@ -37,13 +37,23 @@
 }
 
 - (IBAction)clickOntheMiddle:(id)sender {
-	[self.searchTree printType:PrintTypeMiddle];
+	[self.searchTree printType:PrintTypeIn];
 }
 
 - (IBAction)clickOntheLast:(id)sender {
 	[self.searchTree printType:PrintTypeLast];
 }
 
+- (IBAction)clickOntheThreeHeight:(id)sender {
+	[self.searchTree printType:PrintTypeThreeHeight];
+}
 
+- (IBAction)clickClean:(id)sender {
+	[self.searchTree clean];
+}
+- (IBAction)clickOntheDelete:(id)sender {
+	// 随便删除个值
+	[self.searchTree removeValue:200];
+}
 
 @end
